@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES3",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "rootDir": "src",
+        "outDir": "dist"
+    }
+}

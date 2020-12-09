@@ -1,0 +1,25 @@
+{
+  "name": "roundinterval",
+  "version": "1.0.0",
+  "description": "A simple package to help you run round intervals",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon src/app.ts",
+    "build": "tsc -p ."
+  },
+  "author": "ubarilan",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^14.14.11"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubarilan/roundinterval.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ubarilan/roundinterval/issues"
+  },
+  "homepage": "https://github.com/ubarilan/roundinterval#readme"
+}
