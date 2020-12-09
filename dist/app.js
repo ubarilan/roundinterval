@@ -5,3 +5,4 @@ module.exports = {
     startRoundTimer: functions_1.startRoundTimer,
     getTimeout: functions_1.getTimeout
 };
+functions_1.startRoundTimer({ seconds: 0 }, function () { return console.log(new Date()); });

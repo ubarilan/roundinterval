@@ -12,6 +12,21 @@ function getTimeout(timer) {
     throw 'Bad parameters';
 }
 exports.getTimeout = getTimeout;
+function getIsEligibleToRunAtZero(num, type) {
+    if (type === void 0) { type = "normal"; }
+    if (num === 0)
+        return true;
+    else if ((type == "normal" ? 60 : 24) % num == 0)
+        return true;
+    else
+        return false;
+}
+function actuallyExists(num) {
+    if (num === undefined || num === null)
+        return false;
+    else
+        return true;
+}
 //This is the main function
 function startRoundTimer(timer, toDo, every) {
     setInterval(function () {
@@ -21,9 +36,9 @@ function startRoundTimer(timer, toDo, every) {
         var minutesNow = date.getMinutes();
         var hoursNow = date.getHours();
         //Checks if the seconds are eligible for executins the given function
-        var conditionForSeconds = !timer.seconds ? true : secondsNow === timer.seconds;
+        var conditionForSeconds = !actuallyExists(timer.seconds) ? true : secondsNow === timer.seconds;
         if (secondsNow == 0 && every) {
-            if (60 % timer.seconds == 0)
+            if (60 % timer.seconds == 0 || timer.seconds == 0)
                 conditionForSeconds = conditionForSeconds = 60 % timer.seconds == 0;
         }
         else if (every && secondsNow !== 0) {
@@ -31,9 +46,9 @@ function startRoundTimer(timer, toDo, every) {
                 conditionForSeconds = conditionForSeconds || secondsNow % timer.seconds == 0;
         }
         //Checks if the minutes are eligible for executins the given function
-        var conditionForMinutes = !timer.minutes ? true : minutesNow === timer.minutes;
+        var conditionForMinutes = !actuallyExists(timer.minutes) ? true : minutesNow === timer.minutes;
         if (minutesNow == 0 && every) {
-            if (60 % timer.minutes == 0)
+            if (60 % timer.minutes == 0 || timer.minutes == 0)
                 conditionForMinutes = conditionForMinutes = 60 % timer.minutes == 0;
         }
         else if (every && minutesNow !== 0) {
@@ -41,9 +56,9 @@ function startRoundTimer(timer, toDo, every) {
                 conditionForMinutes = conditionForMinutes || minutesNow % timer.minutes == 0;
         }
         //Checks if the hours are eligible for executins the given function
-        var conditionForHours = !timer.hours ? true : hoursNow === timer.hours;
+        var conditionForHours = !actuallyExists(timer.hours) ? true : hoursNow === timer.hours;
         if (hoursNow == 0 && every) {
-            if (24 % timer.hours == 0)
+            if (24 % timer.hours == 0 || timer.hours == 0)
                 conditionForHours = conditionForHours = 24 % timer.hours == 0;
         }
         else if (every && hoursNow !== 0) {
