@@ -2,9 +2,9 @@ import { Clock } from './types';
 
 // This funcion calculates the time to wait between checks
 export function getTimeout(timer: Clock): number {
-    if(timer.seconds) return 1000;
-    if(timer.minutes) return 60000;
-    if(timer.hours ) return 3600000;
+    if(timer.seconds || timer.seconds == 0) return 1000;
+    if(timer.minutes || timer.minutes == 0) return 60000;
+    if(timer.hours || timer.hours == 0) return 3600000;
     throw 'Bad parameters';
 }
 
