@@ -3,11 +3,11 @@ exports.__esModule = true;
 exports.startRoundTimer = exports.getTimeout = void 0;
 // This funcion calculates the time to wait between checks
 function getTimeout(timer) {
-    if (timer.seconds)
+    if (timer.seconds || timer.seconds == 0)
         return 1000;
-    if (timer.minutes)
+    if (timer.minutes || timer.minutes == 0)
         return 60000;
-    if (timer.hours)
+    if (timer.hours || timer.hours == 0)
         return 3600000;
     throw 'Bad parameters';
 }
